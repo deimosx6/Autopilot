@@ -4,19 +4,20 @@
   <!-- Cube Blocks -->
 
   <CubeBlocks>
-	<Definition>
+    <Definition xsi:type="MyObjectBuilder_BeaconDefinition">
       <Id>
         <TypeId>Beacon</TypeId>
         <SubtypeId>LargeBlockRadarRynAR</SubtypeId>
       </Id>
       <Description>
-        Radar
-        MinAzimuth=-2.356194490192345
-        MaxAzimuth=0.7853981633974483
-        MinElevation=-0.7853981633974483
-        MaxElevation=2.356194490192345
+        Radar=true
+        MaxTargets_Tracking=1
+        MinAzimuth=-1.963495408493621
+        MaxAzimuth=0.3926990816987241
+        MinElevation=-0.3926990816987241
+        MaxElevation=1.963495408493621
       </Description>
-      <DisplayName>Radar</DisplayName>
+      <DisplayName>Radar Dish</DisplayName>
       <Icon>Textures\Icons\LargeBlockRadarRynAR.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -36,32 +37,34 @@
       </Components>
       <CriticalComponent Subtype="Detector" Index="0" />
       <MountPoints>
-				<MountPoint Side="Bottom" StartX="0.00" StartY="0.01" EndX="2.97" EndY="2.98" />
+        <MountPoint Side="Bottom" StartX="0.00" StartY="0.01" EndX="2.97" EndY="2.98" />
       </MountPoints>
       <BuildProgressModels>
-				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\LargeBlockRadarRynAR_Constr1.mwm" />
-				<Model BuildPercentUpperBound="0.67" File="Models\Cubes\LargeBlockRadarRynAR_Constr2.mwm" />
-				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\LargeBlockRadarRynAR_Constr3.mwm" />
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\LargeBlockRadarRynAR_Constr1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\LargeBlockRadarRynAR_Constr2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\LargeBlockRadarRynAR_Constr3.mwm" />
       </BuildProgressModels>
       <BlockPairName>LargeBlockRadarRynAR</BlockPairName>
       <EdgeType>Light</EdgeType>
+      <ResourceSinkGroup>Utility</ResourceSinkGroup>
       <BuildTimeSeconds>150</BuildTimeSeconds>
       <DamageEffectId>214</DamageEffectId>
     </Definition>
-    <Definition>
+    <Definition xsi:type="MyObjectBuilder_BeaconDefinition">
       <Id>
         <TypeId>Beacon</TypeId>
         <SubtypeId>SmallBlockRadarRynAR</SubtypeId>
       </Id>
       <Description>
-        Radar
+        Radar=true
+        MaxTargets_Tracking=1
         MaxPowerLevel=20000
-        MinAzimuth=-2.356194490192345
-        MaxAzimuth=0.7853981633974483
-        MinElevation=-0.7853981633974483
-        MaxElevation=2.356194490192345
+        MinAzimuth=-1.963495408493621
+        MaxAzimuth=0.3926990816987241
+        MinElevation=-0.3926990816987241
+        MaxElevation=1.963495408493621
       </Description>
-      <DisplayName>Radar</DisplayName>
+      <DisplayName>Radar Dish</DisplayName>
       <Icon>Textures\Icons\LargeBlockRadarRynAR.dds</Icon>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -81,17 +84,18 @@
       </Components>
       <CriticalComponent Subtype="Detector" Index="0" />
       <MountPoints>
-				<MountPoint Side="Bottom" StartX="0.00" StartY="0.01" EndX="2.97" EndY="2.98" />
+         <MountPoint Side="Bottom" StartX="0.00" StartY="0.01" EndX="2.97" EndY="2.98" />
       </MountPoints>
       <BuildProgressModels>
-				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\SmallBlockRadarRynAR_Constr1.mwm" />
-				<Model BuildPercentUpperBound="0.67" File="Models\Cubes\SmallBlockRadarRynAR_Constr2.mwm" />
-				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\SmallBlockRadarRynAR_Constr3.mwm" />
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\SmallBlockRadarRynAR_Constr1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\SmallBlockRadarRynAR_Constr2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\SmallBlockRadarRynAR_Constr3.mwm" />
       </BuildProgressModels>
       <BlockPairName>LargeBlockRadarRynAR</BlockPairName>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
+      <ResourceSinkGroup>Utility</ResourceSinkGroup>
       <BuildTimeSeconds>30</BuildTimeSeconds>
       <DamageEffectId>214</DamageEffectId>
     </Definition>
@@ -123,18 +127,6 @@
       </ItemIds>
     </Category>
   </CategoryClasses>
-
-  <!-- LCD Textures -->
-
-  <LCDTextures>
-	<LCDTextureDefinition>
-      <Id>
-        <TypeId>LCDTextureDefinition</TypeId>
-        <SubtypeId>Radar</SubtypeId>
-      </Id>
-     <TexturePath>Textures\TextPanel\radar.dds</TexturePath>
-    </LCDTextureDefinition>
-  </LCDTextures>
 
   <!-- Assembler Blueprints -->
 
