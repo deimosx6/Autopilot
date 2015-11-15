@@ -2,7 +2,7 @@
 [list]Weapon Control manages the targeting, aiming, and firing of turrets, rotor-turrets, and fixed-weapons.[/list]
 
 [b][u]Engaging[/u][/b]
-In order to engage a target, a ship must have weapons with commands. Targets will only be engaged if one or more weapons have commands to shoot the target. The target must also be detected. The engager will attempt to bring all of its weapons (fixed and turret) into range.
+In order to engage a target, a ship must have weapons with commands. Targets will only be engaged if one or more weapons have commands to shoot the target. The target must also be detected. The engager will attempt to bring all of its weapons (fixed and turret), that can target a grid, into range.
 
 [b][u]Info: Command Instructions[/u][/b]
 [list][*]All commands are to be used/typed in the display name of the weapon block.
@@ -26,12 +26,6 @@ In order to engage a target, a ship must have weapons with commands. Targets wil
 [b][u]Debugging[/u][/b]
 [list]If a mistake/error is made to the command line, an <ERROR:#> will be added to the start of the display name. The word ERROR simply means you made a mistake somewhere. The # simply indicates which command has the error. Its important to note that the first command used in the display name is at 0. Each additional command is +1 from the one prior. Please see the below example for further explanation.
 
-[b][u]Known Issues[/u][/b]
-[list][*]It is not possible for a mod to control the targeting lasers or cursors. The cursors will often be placed on the wrong target and the lasers may point in a different direction from the turret.
-[*]A turret that does not have an A.I. can be used but it is dangerous; due to a bug in Space Engineers the no-A.I. turrets will glitch while moving. This can cause projectiles to be fired in the wrong direction.
-[*]Engage command is not aware of rotor-turrets.
-[*]Rotor-turrets can only access text panels on the same grid as the weapon.[/list]
-
 [u]Example:[/u]
 You want to have a specific gun to fire at all ships or stations guns, that are within 600 meters. However, you type the following:
 
@@ -47,8 +41,13 @@ If the above command is used, the display name will change to the following:
 
 As mentioned above, the <ERROR:#> added to the display name indicates an error and which command the problem exists for. It's important to note that the command "(Turret, Rocket, Gatling)" is at 0. In this case, the ERROR is at command 1. From the example, this would be the command "All-Grid." This is because there is no command named "All-Grid." Instead what was most likely candidate is the command "AllGrid", for which there would be no error.[/list]
 
+[b][u]Known Issues[/u][/b]
+[list][*]It is not possible for a mod to control the targeting lasers or cursors. The cursors will often be placed on the wrong target and the lasers may point in a different direction from the turret.
+[*]A turret that does not have an A.I. can be used but it is dangerous; due to a bug in Space Engineers the no-A.I. turrets will glitch while moving. This can cause projectiles to be fired in the wrong direction.
+[*]Engage command is not aware of rotor-turrets.[/list]
+
 [b][u]Important Information[/u][/b]
-[list][*]N.P.C. weapons obtain their commands from a settings file rather than from their weapons's block name.
+[list][*]If an N.P.C. weapon's display name contain square brackets without commands, they will use the commands from the settings file.
 [list][*]This is any weapon who's ownership is set to N.P.C. and not a player.[/list]
 [*]By default, Weapon Control will target working blocks, if you would prefer to target functional blocks use the Functional command.
 [list][*]Working means the block is "ON"
@@ -58,12 +57,12 @@ As mentioned above, the <ERROR:#> added to the display name indicates an error a
 [b][u]Understanding Obstructions[/u][/b]
 [list][*]An obstruction can be an asteroid, a friendly character, or a friendly grid.
 [*]Blocks are considered to take up as much space as is required to place them.
-[*]Autopilot's Weapon Control asssume that any fixed weapon will not be able to hit the grid they are apart of.
+[*]Weapon Control assumes that any fixed weapon will not be able to hit the grid they are apart of.
 [list][*]In other words, it assumes that if it fires a fixed weapon, there isn't a part of the ship its attached to in the way of the projectile.[/list][/list]
-[list]For vanilla (default game) interior turrets, Autopilot's Weapon Control will test a single line out from the weapon to the target for obstructions. For all other weapons, Autopilot's Weapon Control will test multiple lines out from points around the weapon to the target for obstructions. You can switch to testing a single line(at your own peril) with the Interior command. See the "Commands List" for more information.[/list]
+[list]For vanilla (default game) interior turrets, Weapon Control will test a single line out from the weapon to the target for obstructions. For all other weapons, Weapon Control will test multiple lines out from points around the weapon to the target for obstructions. You can switch to testing a single line(at your own peril) with the Interior command. See the "Commands List" for more information.[/list]
 
 [b][u]Targeting On/Off Toggles and Commands[/u][/b]
-[list]Weapons can be told what to target and fire at either by using commands or by individually selecting the On/Off Targetting toggles found in the control panel for all turret weapons. All fixed weapons, however, must be told what to target and shoot through commands.[/list]
+[list]Weapons can be told what to target and fire at either by using commands or by individually selecting the On/Off Targeting toggles found in the control panel for all turret weapons. All fixed weapons, however, must be told what to target and shoot through commands.[/list]
 
 [b][u]Command List[/u][/b]
 
@@ -76,7 +75,8 @@ As mentioned above, the <ERROR:#> added to the display name indicates an error a
 
 [u]Uncommon Commands[/u]
 [list][*]Functional - [i]Block can be operational but not necessarily "ON"[/i]
-[*]Interior - [i]Reduces the number of obstruction tests that will be performed, always enabled for vanilla interior turrets.[/i][/list]
+[*]Interior - [i]Reduces the number of obstruction tests that will be performed, always enabled for vanilla interior turrets.[/i]
+[*]ID <entityId> - [i]Only allows the weapon to target the given entity. entityId can be found by displaying detected grids on a text panel.[/i][/list]
 
 [u]Priority Commands[/u]
 [list]Missile has the highest priority, followed by Meteor, then Character, then Moving. All of these have higher priority than targeting specific blocks.
